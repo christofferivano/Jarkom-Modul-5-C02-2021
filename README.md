@@ -1,5 +1,56 @@
 # Jarkom-Modul-5-C02-2021
 
+### 1. Agar topologi yang kalian buat dapat mengakses keluar, kalian diminta untuk mengkonfigurasi Foosha menggunakan iptables, tetapi Luffy tidak ingin menggunakan MASQUERADE.
+Input snytax berikut pada Foosha 
+```
+iptables -t nat -A POSTROUTING -s 10.15.0.0/21 -o eth0 -j SNAT --to-source 192.168.122.25
+```
+Keterangan : <br>
+`-t nat` : Menggunakan tabel NAT karena akan mengubah alamat asal dari paket
+`-A POSTROUTING`: Menggunakan chain POSTROUTING karena mengubah asal paket setelah routing
+`-s 10.15.0.0/21`: Mendifinisikan alamat asal dari paket yaitu semua alamat IP dari subnet 10.15.0.0/21
+`-o eth0` : Paket keluar dari eth0 Foosha
+`-j SNAT`: Menggunakan target SNAT untuk mengubah source atau alamat asal dari paket
+`--to-s` (ip eth0) : Mendefinisikan IP source, di mana digunakan eth0 Foosha dengan rentang IP 192.168.122.0 sampai 192.168.122.255
+
+Testing : ping ke beberapa node 
+Nb : 
+1. Untuk subnet blueno dan cipher harus memperhatikan ketentuan pada soal no.4 sehingga tanggal dan waktu harus diatur dengan : 
+```
+date -s "8 nov 2021 10:00:00"
+```
+2. Untuk subnet elena dan fukurou harus memperhatikan ketentuan pada soal no.5 sehingga tanggal dan waktu harus diatur dengan : 
+```
+date -s "8 nov 2021 17:00:00"
+```
+
+
+#### Hasil Testing
+1. Doriki
+[doriki-ping.png](https://postimg.cc/F1HfHpTk)
+
+2. Jipangu
+[![jipangu-ping.png](https://i.postimg.cc/LXFn12yp/jipangu-ping.png)](https://postimg.cc/XZxjMSSH)
+
+3. Blueno
+[![blue-ping.png](https://i.postimg.cc/VLhstz6V/blue-ping.png)](https://postimg.cc/9rGj55yd)
+
+4. Cipher
+[![cipher-ping.png](https://i.postimg.cc/Njrs7Z2f/cipher-ping.png)](https://postimg.cc/VJmPzGF3)
+
+5. Jorge
+[![jorge.png](https://i.postimg.cc/Dfj7V7qw/jorge.png)](https://postimg.cc/Z0dGpt7G)
+
+6. Maingate
+[![main-ping.png](https://i.postimg.cc/bNZpp4TH/main-ping.png)](https://postimg.cc/RNxjTs2N)
+
+7. Elena
+[![ele.png](https://i.postimg.cc/GtV04hQP/ele.png)](https://postimg.cc/jnH39TBC)
+
+8. Fukurou
+[![fukurou.png](https://i.postimg.cc/nh8bZrMp/fukurou.png)](https://postimg.cc/MvYrmWyF)
+
+
 ### 2. Kalian diminta untuk mendrop semua akses HTTP dari luar Topologi kalian pada server yang merupakan DHCP Server dan DNS Server demi menjaga keamanan.
 Input syntax berikut pada Doriki dan Jipangu :<br>
 ```
