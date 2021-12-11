@@ -1,5 +1,11 @@
 # Jarkom-Modul-5-C02-2021
 
+|         Nama        |       NRP      |
+|        :----:       |     :----:     |
+| Muhammad Bagus I    | 05111940000049 |
+| Christoffer Ivano   | 05111940000091 |
+| Bayu Adjie Sidharta | 05111940000172 |
+
 ### 1. Agar topologi yang kalian buat dapat mengakses keluar, kalian diminta untuk mengkonfigurasi Foosha menggunakan iptables, tetapi Luffy tidak ingin menggunakan MASQUERADE.
 Input snytax berikut pada Foosha 
 ```
@@ -154,3 +160,30 @@ Set waktu pada Doriki dengan syntax `date -s "8 nov 2021 17:00:00"` lalu ping Do
 Hasil :<br>
 ![image](https://user-images.githubusercontent.com/73484021/145561471-2601e816-f678-43b0-8c9f-6884a03d5ffe.png)
 ![image](https://user-images.githubusercontent.com/73484021/145561501-96a31bde-bb40-4a24-b3dc-f09012bfb5c4.png)
+
+### 6. Karena kita memiliki 2 Web Server, Luffy ingin Guanhao disetting sehingga setiap request dari client yang mengakses DNS Server akan didistribusikan secara bergantian pada Jorge dan Maingate
+Input syntax berikut pada Guanhao, Jorge, dan Maingate :<br>
+```
+iptables -A PREROUTING -t nat -p tcp -d 10.15.0.8/29 --dport 80 -m statistic --mode nth --every 2 --packet 0 -j DNAT --to-destination  10.15.0.18:80
+iptables -A PREROUTING -t nat -p tcp -d 10.15.0.8/29 --dport 80 -j DNAT --to-destination 10.15.0.19:80
+iptables -t nat -A POSTROUTING -p tcp -d 10.15.0.18 --dport 80 -j SNAT --to-source 10.15.0.8:80
+iptables -t nat -A POSTROUTING -p tcp -d 10.15.0.19 --dport 80 -j SNAT --to-source 10.15.0.8:80
+```
+
+Testing : <br>
+1. Pada Guanhao, Jorge, Maingate dan Elena install apt-get install netcat
+2. Pada Jorge ketikkan perintah: nc -l -p 80
+3. Pada Maingate ketikkan perintah: nc -l -p 80
+4. Pada client Elena ketikkan perintah: nc 10.15.0.8 80
+5. Ketikkan sembarang pada client Elena, nanti akan muncul bergantian
+
+
+#### Hasil Testing 
+
+[![jorge.png](https://i.postimg.cc/Dfj7V7qw/jorge.png)](https://postimg.cc/Z0dGpt7G)
+
+[![ele.png](https://i.postimg.cc/GtV04hQP/ele.png)](https://postimg.cc/jnH39TBC)
+
+[![main.png](https://i.postimg.cc/Gp567mWW/main.png)](https://postimg.cc/XZ92X47L)
+
+[![fuku.png](https://i.postimg.cc/ZKS2DgQ5/fuku.png)](https://postimg.cc/LhxxJyRc)
