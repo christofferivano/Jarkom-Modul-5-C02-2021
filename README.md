@@ -28,7 +28,7 @@ date -s "8 nov 2021 17:00:00"
 #### Hasil Testing
 1. Doriki
 
-[doriki-ping.png](https://postimg.cc/F1HfHpTk)
+[![doriki-ping.png](https://i.postimg.cc/HWQb3P5z/doriki-ping.png)](https://postimg.cc/F1HfHpTk)
 
 2. Jipangu
 
