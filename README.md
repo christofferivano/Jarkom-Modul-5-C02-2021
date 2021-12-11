@@ -27,27 +27,35 @@ date -s "8 nov 2021 17:00:00"
 
 #### Hasil Testing
 1. Doriki
+
 [doriki-ping.png](https://postimg.cc/F1HfHpTk)
 
 2. Jipangu
+
 [![jipangu-ping.png](https://i.postimg.cc/LXFn12yp/jipangu-ping.png)](https://postimg.cc/XZxjMSSH)
 
 3. Blueno
+
 [![blue-ping.png](https://i.postimg.cc/VLhstz6V/blue-ping.png)](https://postimg.cc/9rGj55yd)
 
 4. Cipher
+
 [![cipher-ping.png](https://i.postimg.cc/Njrs7Z2f/cipher-ping.png)](https://postimg.cc/VJmPzGF3)
 
 5. Jorge
+
 [![jorge.png](https://i.postimg.cc/Dfj7V7qw/jorge.png)](https://postimg.cc/Z0dGpt7G)
 
 6. Maingate
+
 [![main-ping.png](https://i.postimg.cc/bNZpp4TH/main-ping.png)](https://postimg.cc/RNxjTs2N)
 
 7. Elena
+
 [![ele.png](https://i.postimg.cc/GtV04hQP/ele.png)](https://postimg.cc/jnH39TBC)
 
 8. Fukurou
+
 [![fukurou.png](https://i.postimg.cc/nh8bZrMp/fukurou.png)](https://postimg.cc/MvYrmWyF)
 
 
